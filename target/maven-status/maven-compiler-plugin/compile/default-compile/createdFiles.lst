@@ -1,0 +1,5 @@
+client\Client.class
+data\User.class
+utils\Variables.class
+client\UserClient.class
+client\OrderClient.class
