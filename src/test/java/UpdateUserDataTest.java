@@ -23,7 +23,7 @@ public class UpdateUserDataTest {
     }
 
     @Test
-    public void сhangeAuthorizedUserData() {
+    public void changeAuthorizedUserData() {
         user.setEmail(user.getEmail() + "somerandomletters");
         user.setPassword(user.getPassword() + "somerandomletters");
         user.setName(user.getName() + "somerandomletters");
@@ -36,7 +36,7 @@ public class UpdateUserDataTest {
     }
 
     @Test
-    public void сhangeAuthorizedUserEmail() {
+    public void changeAuthorizedUserEmail() {
         user.setEmail(user.getEmail() + "somerandomletters");
         Response response = userClient.changeUserDataWithToken(authToken.substring(7), user);
         assertThat("В ответе отсутствует параметр success со значением true", response.path("success"), equalTo(true));
@@ -45,7 +45,7 @@ public class UpdateUserDataTest {
     }
 
     @Test
-    public void сhangeAuthorizedUserPassword() {
+    public void changeAuthorizedUserPassword() {
         user.setPassword(user.getPassword() + "somerandomletters");
         Response response = userClient.changeUserDataWithToken(authToken.substring(7), user);
         assertThat("В ответе отсутствует параметр success со значением true", response.path("success"), equalTo(true));
@@ -54,7 +54,7 @@ public class UpdateUserDataTest {
     }
 
     @Test
-    public void сhangeAuthorizedUserName() {
+    public void changeAuthorizedUserName() {
         user.setName(user.getName() + "somerandomletters");
         Response response = userClient.changeUserDataWithToken(authToken.substring(7), user);
         assertThat("В ответе отсутствует параметр success со значением true", response.path("success"), equalTo(true));
@@ -63,7 +63,7 @@ public class UpdateUserDataTest {
     }
 
     @Test
-    public void сhangeUnauthorizedUserData() {
+    public void changeUnauthorizedUserData() {
         user.setEmail(user.getEmail() + "somerandomletters");
         user.setPassword(user.getPassword() + "somerandomletters");
         user.setName(user.getName() + "somerandomletters");
@@ -74,7 +74,7 @@ public class UpdateUserDataTest {
     }
 
     @Test
-    public void сhangeUnauthorizedUserEmail() {
+    public void changeUnauthorizedUserEmail() {
         user.setEmail(user.getEmail() + "somerandomletters");
         Response response = userClient.changeUserDataWithoutToken(user);
         assertThat("В ответе отсутствует параметр success со значением false", response.path("success"), equalTo(false));
@@ -83,7 +83,7 @@ public class UpdateUserDataTest {
     }
 
     @Test
-    public void сhangeUnauthorizedUserPassword() {
+    public void changeUnauthorizedUserPassword() {
         user.setPassword(user.getPassword() + "somerandomletters");
         Response response = userClient.changeUserDataWithoutToken(user);
         assertThat("В ответе отсутствует параметр success со значением false", response.path("success"), equalTo(false));
@@ -92,7 +92,7 @@ public class UpdateUserDataTest {
     }
 
     @Test
-    public void сhangeUnauthorizedUserName() {
+    public void changeUnauthorizedUserName() {
         user.setName(user.getName() + "somerandomletters");
         Response response = userClient.changeUserDataWithoutToken(user);
         assertThat("В ответе отсутствует параметр success со значением false", response.path("success"), equalTo(false));
@@ -101,7 +101,7 @@ public class UpdateUserDataTest {
     }
 
     @Test
-    public void сhangeEmailOnAlreadyExist() {
+    public void changeEmailOnAlreadyExist() {
         User userTwo = User.generateUser();
         userClient.createUser(userTwo);
         user.setEmail(userTwo.getEmail());

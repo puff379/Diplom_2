@@ -21,7 +21,7 @@ public class CreateUserTest {
     }
 
     @Test
-    public void сreateUserWithCorrectData() {
+    public void createUserWithCorrectData() {
         Response response = userClient.createUser(user);
         assertThat("Ответ не содержит параметр success со значением true", response.path("success"), equalTo(true));
         assertThat("Отсутствует accessToken", response.path("accessToken"), notNullValue());
@@ -29,7 +29,7 @@ public class CreateUserTest {
     }
 
     @Test
-    public void сreateAlreadyRegisteredUser() {
+    public void createAlreadyRegisteredUser() {
         userClient.createUser(user);
         Response response = userClient.createUser(user);
         assertThat("Ответ не содержит параметр success со значением false", response.path("success"), equalTo(false));
@@ -38,7 +38,7 @@ public class CreateUserTest {
     }
 
     @Test
-    public void сreateUserWithoutEmail() {
+    public void createUserWithoutEmail() {
         user.setEmail(null);
         Response response = userClient.createUser(user);
         assertThat("Ответ не содержит параметр success со значением false", response.path("success"), equalTo(false));
@@ -47,7 +47,7 @@ public class CreateUserTest {
     }
 
     @Test
-    public void сreateUserWithoutPassword() {
+    public void createUserWithoutPassword() {
         user.setPassword(null);
         Response response = userClient.createUser(user);
         assertThat("Ответ не содержит параметр success со значением false", response.path("success"), equalTo(false));
@@ -56,7 +56,7 @@ public class CreateUserTest {
     }
 
     @Test
-    public void сreateUserWithoutName() {
+    public void createUserWithoutName() {
         user.setName(null);
         Response response = userClient.createUser(user);
         assertThat("Ответ не содержит параметр success со значением false", response.path("success"), equalTo(false));
